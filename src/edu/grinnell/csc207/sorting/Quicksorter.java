@@ -64,7 +64,31 @@ public class Quicksorter<T> extends SorterBridge<T> {
     *    For all i, mid < i < ub, order.compare(pivot, values[i]) < 0
     */
    int partition(T[] vals, Comparator<T> order, int lb, int ub) {
-       // STUB
-       return lb;
+       // select pivot between lb and ub
+       int pivot;        
+       
+       for (int i = lb; i < ub; i++) {
+       
+               int small = lb+ 1;
+               int large = ub - 1;
+               
+               /* If flag[i] is not properly placed within the correct bounds, keep swapping
+                * until it is. */
+               while ((order.compare(vals[i], vals[pivot]) < 0 && i != redbound)
+                               || (flag[i] == blue && i != bluebound)) {
+               
+                       /* Place flag[i] at the appropriate boundary and increment that boundary */
+                       if (flag[i] == red) {
+                               swap(flag, i, redbound);
+                               redbound++;
+                       } // if
+                       
+                       else if (flag[i] == blue) {
+                               swap(flag, i, bluebound);
+                               bluebound--;
+                       } // if
+               } // while
+       } // for
+       return pivot;
    } // partition
 } // Quicksorter<T>

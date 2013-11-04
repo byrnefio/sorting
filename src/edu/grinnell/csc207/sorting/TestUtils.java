@@ -39,7 +39,8 @@ public class TestUtils {
      */
     public static <T> void testAllPermutations(Sorter<T> sorter,
 	    Comparator<T> order, T[] sorted) {
-	testAllPermutationsKernel(sorter, order, sorted, sorted.clone(), sorted.length);
+	testAllPermutationsKernel(sorter, order, sorted, sorted.clone(),
+		sorted.length);
     } // testAllPermutations(Sorter<T>, Comparator<T>, T[])
 
     /**
