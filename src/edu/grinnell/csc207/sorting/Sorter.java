@@ -16,6 +16,7 @@ public interface Sorter<T> {
     * @param order, the order by which to sort the values.
     * @return
     *    The same array, now sorted.
+ * @throws Exception 
     * @pre
     *    order can be applied to any two values in vals.
     * @pre
@@ -26,7 +27,7 @@ public interface Sorter<T> {
     *    For all i, 0 < i < vals.length,
     *      order.compare(vals[i-1], vals[i]) <= 0
     */
-   public T[] sorti(T[] values, Comparator<T> order);
+   public T[] sorti(T[] values, Comparator<T> order) throws Exception;
 
    /**
     * Sort an array out of place.
@@ -34,6 +35,7 @@ public interface Sorter<T> {
     * @param vals, an array to sort.
     * @param order, the order by which to sort the values.
     * @return sorted, an array.
+ * @throws Exception 
     * @pre
     *    order can be applied to any two values in vals.
     * @post
@@ -44,5 +46,5 @@ public interface Sorter<T> {
     *    For all i, 0 < i < sorted.length,
     *      order.compare(sorted[i-1], sorted[i]) <= 0
     */
-   public T[] sort(T[] values, Comparator<T> order);
+   public T[] sort(T[] values, Comparator<T> order) throws Exception;
 } // interface Sorter

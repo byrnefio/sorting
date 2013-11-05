@@ -6,12 +6,12 @@ import org.junit.Test;
 
 public class QuicksorterTest {
     @Test
-    public void test1() {
+    public void test1() throws Exception {
 	TestUtils.test1(new Quicksorter<Integer>());
     } // test1
     
     @Test
-    public void test2() {
+    public void test2() throws Exception {
 	TestUtils.test2(new Quicksorter<Integer>());
     } // test2
    /* @Test

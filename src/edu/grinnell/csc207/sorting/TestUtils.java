@@ -25,9 +25,10 @@ public class TestUtils {
 
     /**
      * Test one permutation of sorted.
+     * @throws Exception 
      */
     public static <T> void testOnePermutation(Sorter<T> sorter,
-	    Comparator<T> order, T[] sorted) {
+	    Comparator<T> order, T[] sorted) throws Exception {
 	T[] values = sorted.clone();
 	Utils.permute(values);
 	T[] resorted = sorter.sort(values, order);
@@ -36,9 +37,10 @@ public class TestUtils {
 
     /**
      * Build all permutations of sorted and see if they sort properly.
+     * @throws Exception 
      */
     public static <T> void testAllPermutations(Sorter<T> sorter,
-	    Comparator<T> order, T[] sorted) {
+	    Comparator<T> order, T[] sorted) throws Exception {
 	testAllPermutationsKernel(sorter, order, sorted, sorted.clone(),
 		sorted.length);
     } // testAllPermutations(Sorter<T>, Comparator<T>, T[])
@@ -46,9 +48,10 @@ public class TestUtils {
     /**
      * For each permutation of the first n elements of values, test if the
      * sorted version of values is equal to sorted.
+     * @throws Exception 
      */
     public static <T> void testAllPermutationsKernel(Sorter<T> sorter,
-	    Comparator<T> order, T[] sorted, T[] values, int n) {
+	    Comparator<T> order, T[] sorted, T[] values, int n) throws Exception {
 	// Base case: We're out of elements
 	if (n <= 0) {
 	    T[] resorted = sorter.sort(values, order);
@@ -68,16 +71,18 @@ public class TestUtils {
 
     /**
      * Test all permutations of a simple array of integers.
+     * @throws Exception 
      */
-    public static <T> void test1(Sorter<Integer> sorter) {
+    public static <T> void test1(Sorter<Integer> sorter) throws Exception {
 	testAllPermutations(sorter, StandardIntegerComparator.comparator,
 		new Integer[] { 0, 1, 1, 2, 4, 7, 9, 11, 13, 13 });
     } // test1
 
     /**
      * Test a bunch of random permutations.
+     * @throws Exception 
      */
-    public static <T> void test2(Sorter<Integer> sorter) {
+    public static <T> void test2(Sorter<Integer> sorter) throws Exception {
 	for (int i = 1; i < 20; i++) {
 	    testOnePermutation(sorter, StandardIntegerComparator.comparator,
 		    Utils.randomSortedInts(i * 20));

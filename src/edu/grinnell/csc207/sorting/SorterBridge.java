@@ -12,7 +12,7 @@ import java.util.Comparator;
 public class SorterBridge<T> implements Sorter<T> {
 
    @Override
-   public T[] sorti(T[] vals, Comparator<T> order) {
+   public T[] sorti(T[] vals, Comparator<T> order) throws Exception {
        // Sort
        T[] sorted = sort(vals, order);
        // And copy back to the original array
@@ -22,7 +22,7 @@ public class SorterBridge<T> implements Sorter<T> {
    } // sorti(T[], Comparator<T>)
 
    @Override
-   public T[] sort(T[] values, Comparator<T> order) {
+   public T[] sort(T[] values, Comparator<T> order) throws Exception {
        return sorti(values.clone(), order);
    } // sort(T[], Comparator<T>)
 } // SorterBridge<T>
