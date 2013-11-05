@@ -13,7 +13,7 @@ import java.util.Random;
 public class Quicksorter<T> extends SorterBridge<T> {
     /**
      * Sort vals using Quicksort. See the Sorter<T> interface for additional
-     * details.
+     * details.Your Name Here.
      */
     @Override
     public T[] sorti(T[] vals, Comparator<T> order) {
@@ -62,18 +62,20 @@ public class Quicksorter<T> extends SorterBridge<T> {
 	// select pivot between lb and ub
 	Random rand = new Random();
 	int pivot = rand.nextInt(ub - lb) + lb;
+	//indices of the small (less than pivot) and large (greater than pivot) sections
+	Utils.swap(vals, pivot, lb);
 	int small = lb + 1;
 	int large = ub - 1;
-
+	
 	for (int i = lb + 1; i < ub; i++) {
-
+	    System.out.println("pivot: " + pivot + " small: " + small + " large: " + large);
+	    System.out.println("vals(" + Arrays.toString(vals) + ")");
 	    /*
 	     * If vals[i] is not properly placed above or below pivot, keep
 	     * swapping until it is.
 	     */
-	    while ((order.compare(vals[i], vals[pivot]) < 0) && i > pivot
+	    while ((order.compare(vals[i], vals[pivot]) <= 0) && i > pivot
 		    || (order.compare(vals[i], vals[pivot]) > 0) && i < pivot) {
-
 		/*
 		 * Place vals[i] at the appropriate boundary and increment that
 		 * boundary
@@ -88,11 +90,11 @@ public class Quicksorter<T> extends SorterBridge<T> {
 		    large--;
 		}
 	    } // while
+	    
 	} // for
 
 	// swap pivot into its place above the small elements
 	Utils.swap(vals, pivot, small);
-	System.out.println(pivot);
 	return pivot;
     } // partition
 } // Quicksorter<T>
