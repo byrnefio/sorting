@@ -57,8 +57,9 @@ class Utils {
      *       in a1 and a2 at indices greater than index1 and index2 are greater
      *       than merged[index1 + index2]. 
      */
+    @SuppressWarnings("unchecked")
     public static <T> T[] merge(Comparator<T> order, T[] a1, int lb1, int ub1,
-	    T[] a2, int lb2, int ub2) {
+	    T[] a2, int lb2, int ub2) throws Exception {
 	int index1 = lb1;
 	int index2 = lb2;
 	int indexM = 0;
