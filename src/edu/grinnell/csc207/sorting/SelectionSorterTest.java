@@ -3,11 +3,14 @@ package edu.grinnell.csc207.sorting;
 import org.junit.Test;
 
 /**
- * Unit tests for the built-in sorter.
+ * Unit tests for the selection sort.
  * 
- * @author Samuel A. Rebelsky
+ * @author Kitt Nika
+ * @author Fiona Byrne
+ * @author Justus Goldstein-Shirley
+ * @author Adam Arsenault
  */
-public class BuiltinSorterTest {
+public class SelectionSorterTest {
 
 	@Test
 	public void test1() throws Exception {
@@ -19,4 +22,4 @@ public class BuiltinSorterTest {
 		TestUtils.test2(new BuiltinSorter<Integer>());
 	} // test2
 
-} // BuiltinSorterTest
+} // SelectionSorterTest

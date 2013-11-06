@@ -11,7 +11,10 @@ import java.util.Random;
  * to help with testing or experiments.
  * 
  * @author Samuel A. Rebelsky
- * @author Your Name Here
+ * @author Kitt Nika
+ * @author Fiona Byrne
+ * @author Justus Goldstein-Shirley
+ * @author Adam Arsenault
  */
 class Utils {
 
@@ -23,6 +26,8 @@ class Utils {
 	 * A random number generator for use in permutations and such.
 	 */
 	static Random generator = new Random();
+	
+	static int counter = 0;
 
 	// +----------------+--------------------------------------------------
 	// | Static Methods |
@@ -71,6 +76,7 @@ class Utils {
 		int index2 = lb2;
 		int indexM = 0;
 		T[] merged = (T[]) new Object[(ub1 - lb1) + (ub2 - lb2)];
+		
 		while (index1 < ub1 && index2 < ub2) {
 			if (order.compare(a1[index1], a2[index2]) <= 0) {
 				merged[indexM] = a1[index1];
@@ -180,7 +186,22 @@ class Utils {
 		T tmp = values[i];
 		values[i] = values[j];
 		values[j] = tmp;
+		counter++;
 	} // swap(T[], int, int)
+	
+	/**
+	 * Get the counter.
+	 */
+	public static int get() {
+		return counter;
+	}
+	
+	/**
+	 * Reset the counter.
+	 */
+	public static void reset() {
+		counter = 0;
+	}
 
 	// +-------------+-----------------------------------------------------
 	// | Expermients |
@@ -228,9 +249,6 @@ class Utils {
 		checkSorting(pen,
 				new Integer[] { 0, 1, 1, 2, 3, 4, 5, 7, 9, 11, 13, 13 }, vals2,
 				sorter.sort(vals2, StandardIntegerComparator.comparator)); 
-				/* MergeSortExpt complains about the above line
-				 * Says "ClassCastException: [Ljava.lang.Object; cannot be cast to
-				 * [Ljava.lang.Integer; which is gross */
 
 		// Five random permutation experiments seems like enough
 		for (int i = 0; i < 5; i++) {

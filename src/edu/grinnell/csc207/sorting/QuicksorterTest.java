@@ -1,10 +1,17 @@
 package edu.grinnell.csc207.sorting;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
+/**
+ * Unit tests for the Quicksorter.
+ * 
+ * @author Kitt Nika
+ * @author Fiona Byrne
+ * @author Justus Goldstein-Shirley
+ * @author Adam Arsenault
+ */
 public class QuicksorterTest {
+	
     @Test
     public void test1() throws Exception {
 	TestUtils.test1(new Quicksorter<Integer>());
@@ -14,19 +21,5 @@ public class QuicksorterTest {
     public void test2() throws Exception {
 	TestUtils.test2(new Quicksorter<Integer>());
     } // test2
-   /* @Test
-    public void testSorti() {
-	fail("Not yet implemented");
-    }
 
-    @Test
-    public void testQsort() {
-	fail("Not yet implemented");
-    }
-
-    @Test
-    public void testPartition() {
-	fail("Not yet implemented"); 
-    } */
-  
-}
+} // QuicksorterTest
