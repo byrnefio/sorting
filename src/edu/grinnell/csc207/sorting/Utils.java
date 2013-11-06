@@ -37,22 +37,15 @@ class Utils {
 	 * Merge the values in arrays a1 and a2 into a new array.
 	 * 
 	 * @return merged, an array
-	 * @throws Exception 
 	 * 
 	 * @pre sorted(a1, order)
 	 * @pre sorted(a2, order)
 	 * @post sorted(merged, order).
 	 * @post merged is a permutation of the concatenation of a1 and a2.
 	 */
-	public static <T> T[] merge(Comparator<T> order, T[] a1, T[] a2) throws Exception {
+	public static <T> T[] merge(Comparator<T> order, T[] a1, T[] a2) {
 		return merge(order, a1, 0, a1.length, a2, 0, a2.length);
 	} // merge(Comparator<T>, T[], T[])
-	
-	/* When I added the throws Exception to this (since it was complaining about it so
-	 * much), it forced me to add a throws Exception to basically everything else in
-	 * the project.  Not sure if it was a real fix or if something is seriously wrong
-	 * with merge.  I would got over merge again and make sure it's good, it seems
-	 * to have a few underlying issues. */
 
 	/**
 	 * Merge the values in subarrays of a1 and a2 into a new array.
@@ -71,7 +64,7 @@ class Utils {
 	 */
 	@SuppressWarnings("unchecked")
 	public static <T> T[] merge(Comparator<T> order, T[] a1, int lb1, int ub1,
-			T[] a2, int lb2, int ub2) throws Exception {
+			T[] a2, int lb2, int ub2) {
 		int index1 = lb1;
 		int index2 = lb2;
 		int indexM = 0;
@@ -209,10 +202,9 @@ class Utils {
 
 	/**
 	 * A simple experiment in permutations.
-	 * @throws Exception 
 	 */
 	public static <T> void permutationExperiment(PrintWriter pen,
-			Sorter<T> sorter, Comparator<T> compare, T[] sorted) throws Exception {
+			Sorter<T> sorter, Comparator<T> compare, T[] sorted) {
 		T[] values = sorted.clone();
 		permute(values);
 		checkSorting(pen, sorted, values, sorter.sort(values, compare));
@@ -238,9 +230,8 @@ class Utils {
 
 	/**
 	 * Run some experiments using an integer sorter.
-	 * @throws Exception 
 	 */
-	public static void iExperiments(Sorter<Integer> sorter) throws Exception {
+	public static void iExperiments(Sorter<Integer> sorter) {
 		PrintWriter pen = new PrintWriter(System.out, true);
 		Integer[] vals1 = new Integer[] { 1, 2, 2, 2, 4, 5, 7, 7, 11, 13 };
 
@@ -265,10 +256,9 @@ class Utils {
 	} // experiments(Sorter<Integer>)
 
 	/**
-	 * Run some experiments using a string sorter.
-	 * @throws Exception 
+	 * Run some experiments using a string sorter. 
 	 */
-	public static void sExperiments(Sorter<String> sorter) throws Exception {
+	public static void sExperiments(Sorter<String> sorter) {
 		PrintWriter pen = new PrintWriter(System.out, true);
 		String[] vals1 = new String[] { "a", "b", "b", "f", "g", "g", "w", "x",
 				"y", "z", "z", "z" };

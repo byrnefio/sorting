@@ -9,9 +9,8 @@ public class BuiltinSortExpt {
 	
     /**
      * Run the experiments.
-     * @throws Exception 
      */
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Utils.iExperiments(new BuiltinSorter<Integer>());
         Utils.sExperiments(new BuiltinSorter<String>());
     } // main(String[])

@@ -16,10 +16,9 @@ public class MergeSorter<T> extends SorterBridge<T> {
 	/**
 	 * Sort vals using iterative merge sort. See the Sorter<T> interface for
 	 * additional details.
-	 * @throws Exception 
 	 */
 	@Override
-	public T[] sort(T[] vals, Comparator<T> order) throws Exception {
+	public T[] sort(T[] vals, Comparator<T> order) {
 		// Base case: Singleton arrays need not be sorted.
 		if (vals.length <= 1) {
 			return vals.clone();

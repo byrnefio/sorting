@@ -15,9 +15,8 @@ public class SelectionSortExpt {
 
     /**
      * Run the experiments.
-     * @throws Exception 
      */
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
     	PrintWriter pen = new PrintWriter(System.out, true);
     	
         Utils.iExperiments(new SelectionSorter<Integer>());

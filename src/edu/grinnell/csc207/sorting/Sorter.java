@@ -24,7 +24,7 @@ public interface Sorter<T> {
 	 * @post For all i, 0 < i < vals.length, order.compare(vals[i-1], vals[i])
 	 *       <= 0
 	 */
-	public T[] sorti(T[] values, Comparator<T> order) throws Exception;
+	public T[] sorti(T[] values, Comparator<T> order);
 
 	/**
 	 * Sort an array out of place.
@@ -41,5 +41,5 @@ public interface Sorter<T> {
 	 * @post For all i, 0 < i < sorted.length, order.compare(sorted[i-1],
 	 *       sorted[i]) <= 0
 	 */
-	public T[] sort(T[] values, Comparator<T> order) throws Exception;
+	public T[] sort(T[] values, Comparator<T> order);
 } // interface Sorter

@@ -8,13 +8,13 @@ package edu.grinnell.csc207.sorting;
  * @author Justus Goldstein-Shirley
  * @author Adam Arsenault
  */
-public class MergeSortExpt {
-	
+public class IterativeMergeSortExpt {
+
 	/**
 	 * Run the experiments.
 	 */
 	public static void main(String[] args) {
-		Utils.iExperiments(new MergeSorter<Integer>());
-		Utils.sExperiments(new MergeSorter<String>());
+		Utils.iExperiments(new IterativeMergeSorter<Integer>());
+		Utils.sExperiments(new IterativeMergeSorter<String>());
 	} // main(String[])
-} // MergeSortExpt
+} // IterativeMergeSortExpt

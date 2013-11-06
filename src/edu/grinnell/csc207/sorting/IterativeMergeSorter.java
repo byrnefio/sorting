@@ -18,27 +18,43 @@ public class IterativeMergeSorter<T> extends SorterBridge<T> {
 	 * additional details.
 	 * 
 	 * Loop invariant:
-	 * @throws Exception 
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
-	public T[] sorti(T[] vals, Comparator<T> order) throws Exception {
-		// STUB
+	public T[] sorti(T[] vals, Comparator<T> order) {
 		int size = 1;
-		T[] temp = (T[]) new Object[vals.length];
-		while (size < vals.length) {
-			// Merge neighboring subarrays of size size
-			for (int i = 0; i < vals.length - size; i += size * 2) {
-				T[] subarray1 = Arrays.copyOfRange(vals, i, i + size);
-				T[] subarray2 = Arrays.copyOfRange(vals, i + size, i + size
-						+ size);
-				temp = Utils.merge(order, subarray1, subarray2);
-				for (int j = i; j < i + size + size; j++) {
-					vals[j] = temp[j];
-				} // for
-			} // for
-			// FILL IN!
-			// The merged subarrays are now twice as large
+
+		while (size / 2 < vals.length) {
+			/* Merge neighboring subarrays of size size */
+
+			// until we reach the last subarray of size size...
+			for (int i = 0; i < vals.length; i += size * 2) {
+				// create the first subarray of up to size size
+				T[] subarray1, subarray2, subtemp;
+
+				if (vals.length >= i + size) {
+					subarray1 = Arrays.copyOfRange(vals, i, i + size);
+				} else {
+					subarray1 = Arrays.copyOfRange(vals, i, vals.length);
+				}
+				// if possible, create the second subarray of size size
+				if (vals.length >= i + (2 * size)) {
+					subarray2 = Arrays.copyOfRange(vals, i + size, i
+							+ (2 * size));
+					// and merge those two subarrays
+					subtemp = Utils.merge(order, subarray1, subarray2);
+				} else if (vals.length >= i + size) {
+					subarray2 = Arrays.copyOfRange(vals, i + size, vals.length);
+					subtemp = Utils.merge(order, subarray1, subarray2);
+				} else {
+					subtemp = subarray1;
+				}
+				// change the appropriate size * 2 values in the original array
+				// to the merged array
+				for (int j = 0; j < subtemp.length; j++) {
+					vals[j + i] = subtemp[j];
+				}
+			}
+			// Double the size of the subarrays to be merged
 			size *= 2;
 		} // while
 		return vals;
