@@ -17,7 +17,7 @@ public class IterativeMergeSorter<T> extends SorterBridge<T> {
 	 * Sort vals using iterative merge sort. See the Sorter<T> interface for
 	 * additional details.
 	 * 
-	 * Loop invariant:
+	 * Loop invariant: Each subarray of size size is sorted.
 	 */
 	@Override
 	public T[] sorti(T[] vals, Comparator<T> order) {
