@@ -60,8 +60,12 @@ public class Quicksorter<T> extends SorterBridge<T> {
 	 * @post values[mid] == pivot, for some value pivot
 	 * @post For all i, lb <= i < mid, order.compare(values[i],pivot) <= 0 For
 	 *       all i, mid < i < ub, order.compare(pivot, values[i]) < 0
+	 *  invariant: For the given pivot, all items between lb and pivot in
+      	 *  the array are greater than or equal to lb and less than or equal to
+      	 *  pivot, and all items between pivot and ub are greater than or equal
+      	 *  to pivot and less than or equal to ub.
 	 */
-	int partition(T[] vals, Comparator<T> order, int lb, int ub) {
+	int partition(T[] vals, Comparator<T> order, int lb, int ub) {
 		// select pivot between lb and ub
 		Random rand = new Random();
 		int pivot = rand.nextInt(ub - lb) + lb;
@@ -102,4 +106,26 @@ public class Quicksorter<T> extends SorterBridge<T> {
 		Utils.swap(vals, pivot, small);
 		return pivot;
 	} // partition
+	/*
+  * int partition(T[] vals, Comparator<T> order, int lb, int ub) { // select
+  * pivot between lb and ub Random rand = new Random(); int pivot =
+  * rand.nextInt(ub - lb) + lb; Random rand = new Random(); int pivot =
+  * rand.nextInt(ub - lb) + lb; Comparator newComp = new
+  * IntegerComparator((Comparable)vals[pivot]);
+  * Arrays.sort(vals,lb,ub-1,newComp); return pivot; }
+  */
+/*
+  * int partition(T[] vals, Comparator<T> order, int lb, int ub) { // select
+  * pivot between lb and ub Random rand = new Random(); int pivot =
+  * rand.nextInt(ub - lb) + lb; // indices of the small (less than pivot) and
+  * large (greater than pivot) // sections Utils.swap(vals, pivot, lb); int small
+  * = lb; int large = ub-1; for (int i = small+1; i <= large; i++) { if
+  * (order.compare(vals[i], vals[lb]) <= 0) { Utils.swap(vals, i, small);
+  * small++; }
+  *
+  * else if (order.compare(vals[i], vals[lb]) > 0) { Utils.swap(vals, i, large);
+  * large--; i--; } } // swap pivot into its place above the small elements
+  * Utils.swap(vals, pivot, large); return pivot; } // partition } //
+  * Quicksorter<T>
+  */
 } // Quicksorter<T>
