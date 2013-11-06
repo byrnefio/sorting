@@ -123,14 +123,10 @@ class Utils {
 	/**
 	 * Determine if elements l..(u-1) of an array are in sorted order.
 	 * 
-	 * @param values
-	 *            , the array.
-	 * @param order
-	 *            , the comparator that determines the ordering.
-	 * @param l
-	 *            , an integer
-	 * @param u
-	 *            , an integer
+	 * @param values, the array.
+	 * @param order, the comparator that determines the ordering.
+	 * @param l, an integer
+	 * @param u, an integer
 	 * @return true if the subarray is ordered, false otherwise
 	 * @pre order can be applied to any two values in the array.
 	 * @pre 0 <= l <= values.length
@@ -149,10 +145,8 @@ class Utils {
 	/**
 	 * Determine if an array is sorted.
 	 * 
-	 * @param values
-	 *            , the array.
-	 * @param order
-	 *            , the comparator that determines the ordering.
+	 * @param values, the array.
+	 * @param order, the comparator that determines the ordering.
 	 * @return true if the subarray is ordered, false otherwise
 	 * @pre order can be applied to any two values in the array.
 	 */
@@ -163,12 +157,9 @@ class Utils {
 	/**
 	 * Swap two elements in an array.
 	 * 
-	 * @param values
-	 *            , the array
-	 * @param i
-	 *            , one of the indices
-	 * @param j
-	 *            , another index
+	 * @param values, the array
+	 * @param i, one of the indices
+	 * @param j, another index
 	 * @pre 0 <= i,j < values.length
 	 * @pre a = values[i]
 	 * @pre b = values[j]
@@ -226,6 +217,8 @@ class Utils {
 		// Print the transformation for folks who like to look.
 		pen.println("sort(" + Arrays.toString(values) + ") => ");
 		pen.println("          " + Arrays.toString(resorted));
+		pen.println("Number of swaps: " + get());
+		reset();
 	} // checkSorting
 
 	/**

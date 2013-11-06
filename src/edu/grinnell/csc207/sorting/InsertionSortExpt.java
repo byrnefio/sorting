@@ -1,7 +1,5 @@
 package edu.grinnell.csc207.sorting;
 
-import java.io.PrintWriter;
-
 /**
  * A quick experiment with the insertion sorter.
  *
@@ -17,14 +15,7 @@ public class InsertionSortExpt {
      * Run the experiments.
      */
     public static void main(String[] args) {
-    	PrintWriter pen = new PrintWriter(System.out, true);
-    	
-        Utils.iExperiments(new InsertionSorter<Integer>());
-        pen.println(Utils.get());
-        Utils.reset();
-        
+        Utils.iExperiments(new InsertionSorter<Integer>());        
         Utils.sExperiments(new InsertionSorter<String>());
-        pen.println(Utils.get());
-        Utils.reset();
     } // main(String[])
 } // class InsertionSortExpt
